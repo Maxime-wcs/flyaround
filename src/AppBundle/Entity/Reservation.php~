@@ -185,35 +185,4 @@ class Reservation
     {
         return $this->wasDone;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->passenger = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add passenger
-     *
-     * @param \AppBundle\Entity\User $passenger
-     *
-     * @return Reservation
-     */
-    public function addPassenger(\AppBundle\Entity\User $passenger)
-    {
-        $this->passenger[] = $passenger;
-
-        return $this;
-    }
-
-    /**
-     * Remove passenger
-     *
-     * @param \AppBundle\Entity\User $passenger
-     */
-    public function removePassenger(\AppBundle\Entity\User $passenger)
-    {
-        $this->passenger->removeElement($passenger);
-    }
 }
