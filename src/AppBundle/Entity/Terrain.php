@@ -85,6 +85,12 @@ class Terrain
 
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="arrival")
+     */
+    private $arrivals;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -331,5 +337,39 @@ class Terrain
     public function getDepartures()
     {
         return $this->departures;
+    }
+
+    /**
+     * Add arrival
+     *
+     * @param \AppBundle\Entity\Flight $arrival
+     *
+     * @return Terrain
+     */
+    public function addArrival(\AppBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals[] = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Remove arrival
+     *
+     * @param \AppBundle\Entity\Flight $arrival
+     */
+    public function removeArrival(\AppBundle\Entity\Flight $arrival)
+    {
+        $this->arrivals->removeElement($arrival);
+    }
+
+    /**
+     * Get arrivals
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArrivals()
+    {
+        return $this->arrivals;
     }
 }

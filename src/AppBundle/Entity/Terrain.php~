@@ -85,6 +85,12 @@ class Terrain
 
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="arrival")
+     */
+    private $arrivals;
+
+
+    /**
      * Get id
      *
      * @return int

@@ -42,9 +42,7 @@ class Reservation
     private $passenger;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="flight", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Flight")
      */
     private $flight;
 

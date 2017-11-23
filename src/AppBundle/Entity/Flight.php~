@@ -28,9 +28,8 @@ class Flight
     private $departure;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="arrival", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Terrain", inversedBy="arrivals")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $arrival;
 
@@ -70,16 +69,12 @@ class Flight
     private $description;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="pilot", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $pilot;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="plane", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlaneModel")
      */
     private $plane;
 
