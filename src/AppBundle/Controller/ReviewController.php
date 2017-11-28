@@ -37,10 +37,17 @@ class ReviewController extends Controller
     public function newAction(Request $request)
     {
         $review = new Review();
-
+        $form = $this->createForm('AppBundle\Form\ReviewType', $review);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($review);
+            $em->flush();
+            return $this->redirectToRoute('review_show', array('id' => $review->getId()));
+        }
         return $this->render('review/new.html.twig', array(
             'review' => $review,
-
+            'form' => $form->createView(),
         ));
     }
 

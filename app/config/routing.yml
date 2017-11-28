@@ -8,5 +8,5 @@ app_listing:
     type: annotation
 
 app_review:
-    resource: "@AppBundle/Controller/ListingController.php"
+    resource: "@AppBundle/Controller/ReviewController.php"
     type: annotation
