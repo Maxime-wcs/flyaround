@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul>
+        <li><strong>Numéro de réservation</strong> : {{ reservation.id }}</li>
+        <li><strong>Numéro du vol</strong> : {{ flight.id }}</li>
+        <li><strong>Model avion</strong> : {{ planemodel.model }}</li>
+    </ul>
+
+{% endblock %}
