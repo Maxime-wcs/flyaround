@@ -4,11 +4,20 @@
     <h1>Reviews list</h1>
     {% for review in reviews %}
     <ul>
-        <li><strong>Auteur</strong>{{ reviews.reviewAuthor }}</li>
-        <li><strong></strong></li>
-        <li><strong></strong></li>
-        <li><strong></strong></li>
-        <li><strong></strong></li>
+        <li><strong>Autor review :</strong>{{ review.reviewAuthor }}</li>
+        <li><strong>Text :</strong>{{ review.text }}</li>
+        <li><strong>Rate :</strong>{{ review.userRated }}</li>
+        <li><strong>Publicationdate :</strong>{{ review.publicationDate|date('d-m-Y') }}</li>
+        <li><strong>Note :</strong>{{ review.note }}</li>
     </ul>
+
+
+    <ul>
+        <li><a href="{{ path('review_show', { 'id': review.id }) }}">Show review</a></li>
+        <li><a href="{{ path('review_edit', { 'id': review.id }) }}">Edit review</a></li>
+    </ul>
+
     {% endfor %}
+
+    <a href="{{ path('review_new') }}">Create a new review</a>
 {% endblock %}

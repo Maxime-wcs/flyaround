@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Show review</h1>
+        <ul>
+            <li><strong>Autor review :</strong>{{ review.reviewAuthor }}</li>
+            <li><strong>Text :</strong>{{ review.text }}</li>
+            <li><strong>Rate :</strong>{{ review.userRated }}</li>
+            <li><strong>Publicationdate :</strong>{{ review.publicationDate|date('d-m-Y') }}</li>
+            <li><strong>Note :</strong>{{ review.note }}</li>
+        </ul>
+
+    <ul>
+        <li>
+            <a href="{{ path('review_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('review_edit', { 'id': review.id }) }}">Edit</a>
+        </li>
+    </ul>
+
+
+{% endblock %}
